@@ -1,0 +1,95 @@
+
+.table-wrapper {
+  width: 100%;
+}
+
+.table-wrapper h1 {
+  color: #ccc;
+  font-size: 150px;
+  margin-left: 100px;
+  margin-top: 90px;
+  margin-bottom: -100px;
+}
+
+.table {
+  display: inline-block;
+  overflow: hidden;
+  table-layout: fixed;
+  border-collapse: collapse;
+  box-shadow: 0px 10px 10px #ccc;
+  border-radius: 10px;
+  white-space: nowrap;
+  /* width: 4500px;
+  height: 1100px; */
+  max-width: 75%; 
+  width: 250em;
+  /* width: 200em;
+  /* max-width: 70%; */
+  margin: auto;
+  margin-top: 300px;
+  margin-left: 100px;
+  table-layout: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.table thead {
+  background: linear-gradient(45deg, #777, #0047ab);
+  color: #fffefe;
+  font-size: 96px;
+  /* width: 100%; */
+}
+
+.table th,
+.table td {
+  padding: 5.8rem;
+}
+
+.table td {
+  border-top: 3.5px solid #ddd;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 76px;
+  color: #ccc;
+}
+.table tbody tr:hover {
+  background-color: #eeeeee50;
+}
+
+.expand {
+  width: 100%;
+  text-align: left;
+}
+
+.label {
+  border-radius: 3px;
+  padding: 0.3rem;
+  color: white;
+}
+
+.label-draft {
+  background-color: #777;
+}
+
+.label-live {
+  background-color: #42a942;
+}
+
+.label-error {
+  background-color: #d9534f;
+}
+
+/* .actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.actions svg {
+  cursor: pointer;
+}
+
+.delete-btn {
+  color: #e10d05;
+} */
+
+

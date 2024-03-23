@@ -30,7 +30,7 @@ import CircularProgress from "../Components/CircularProgress/CircularProgress";
 // import img from "../assets/illustration.png"
 
 const Content = () => {
-  const [username, setusername] = useState("")
+  const [username, setusername] = useState("");
   const { DarkTheme } = useContext(ThemeContext);
 
   const [value_i] = useState(Math.floor(Math.random() * 100));
@@ -261,7 +261,7 @@ const Content = () => {
         </section>
       </row>
       <row className="row side-rect">
-          <section>
+        <section>
           <CircularProgress
             color="#00464e"
             value={value_ii}
@@ -276,12 +276,10 @@ const Content = () => {
               Officiis.
             </span>
           </div>
-          </section>
-        
+        </section>
       </row>
       <row className="row side-rect">
-
-      <section>
+        <section>
           <CircularProgress
             color="#810551"
             value={value_i}
@@ -296,7 +294,7 @@ const Content = () => {
               Officiis.
             </span>
           </div>
-          </section>
+        </section>
       </row>
     </div>
   );

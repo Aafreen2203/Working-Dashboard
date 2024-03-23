@@ -11,9 +11,19 @@
   min-height: 100vh;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: #111;
+  /* background-color: #880f0f; */
+  /* background: linear-gradient(45deg, #111, #c19a6b); */
+  /* background-image: linear-gradient(155deg, #111 70%, #c19a6b 100%); */
+  /* background-image: url(https://obgtrack.com/wp-content/uploads/2021/11/global.jpg); */
+  background-image: url(https://cdn.wallpapersafari.com/49/12/pyv4ug.jpg);
+  background-position: center right;
+  background-size: 6150px;
+  background-repeat: no-repeat;
 }
 
+.login-page {
+  background-image: none; /* Override background image for login page */
+}
 ::-webkit-scrollbar {
   background-color: #111;
   width: 3px;
@@ -21,4 +31,28 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: #00464e;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 1500px; /* Adjust the height as needed */
+  /* padding-right: 500px; */
+  position: fixed; /* Fix the container position */
+  bottom: 400px; /* Adjust the distance from the bottom */
+  left: 2900px;
+}
+
+.btn {
+  /* display: flex; */
+  /* margin-top: 2000px; */
+  border: none;
+  background-color: #3566aa;
+  color: #fff;
+  font-size: 56px;
+  padding: 3.5rem 10rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 5px 5px #cccccc7c;
 }

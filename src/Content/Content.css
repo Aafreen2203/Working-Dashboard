@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(40deg, var(--clr-i), var(--clr-ii));
+  background: linear-gradient(40deg, #183d5f, #111);
   padding: 175px;
   border-radius: 10px;
   transition: 0.2s ease;
@@ -40,8 +40,8 @@
 
 .content .row.header {
   height: 50px;
-  --clr-i: #00464e;
-  --clr-ii: #810551;
+  --clr-i: #183d5f;
+  --clr-ii: #111;
 }
 
 .content .row.header:nth-child(1) {
@@ -96,8 +96,8 @@
 
 .content .row.square {
   aspect-ratio: 1;
-  --clr-i:#00464e;
-  --clr-ii: #810551;
+  --clr-i:#183d5f;
+  --clr-ii: #111;
   width: 95%;
 }
 
@@ -118,19 +118,19 @@
   justify-content: flex-start;
   align-items: flex-start;
   grid-row: span 3;
-  --clr-i: #00464e;
-  --clr-ii:#810551;
+  --clr-i: #183d5f;
+  --clr-ii:#111;
 }
 
 .content .row.inv-bg {
-  --clr-i: #810551;
-  --clr-ii: #00464e;
+  --clr-i: #183d5f;
+  --clr-ii: #111;
 }
 
 .content .row.side-rect {
   height: 600px;
-  --clr-i: #00464e;
-  --clr-ii:#810551;
+  --clr-i: #183d5f;
+  --clr-ii:#111;
   grid-column: span 2;
   align-items: flex-start;
   justify-content: flex-start;

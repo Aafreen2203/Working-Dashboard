@@ -1,5 +1,8 @@
 import Nav from "./NavIconTemplate/Nav";
 import "./Navigation.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+// import { useHistory } from "react-router";
+import ChatEditor from "../ChatEditorTemplate/ChatEditor";
 
 import { FiChevronLeft, FiMessageSquare } from "react-icons/fi";
 import { TbDashboard, TbFileUpload } from "react-icons/tb";
@@ -14,12 +17,22 @@ import { RiAccountCircleLine } from "react-icons/ri";
 import { BiMessageAltAdd, BiDotsHorizontalRounded } from "react-icons/bi";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../ThemeContext";
+import Employees from "../EmployeesTemplate/Employees";
+import Customers from "../CustomersTemplate/Customers";
+import Orders from "../OrdersTemplate/Orders";
 
 const Navigation = () => {
   const [nav, setnav] = useState(false);
   const [username, setusername] = useState("");
+  // const [showChatEditor, setShowChatEditor] = useState(false);
 
   const { DarkTheme, setDarkTheme } = useContext(ThemeContext);
+  // const history = useHistory();
+
+  // function Chateditor() {
+  //   // history.push("/chateditor");
+  //   setShowChatEditor(true);
+  // }
 
   function changeTheme() {
     setDarkTheme(!DarkTheme);
@@ -51,17 +64,46 @@ const Navigation = () => {
       </header>
 
       <Nav Icon={TbDashboard} title={"Dashboard"} />
-      <Nav Icon={VscGraphLine} title={"Analytics"} />
-      <Nav Icon={FiMessageSquare} title={"Messages"} />
-      <Nav Icon={AiOutlineUsergroupAdd} title={"Followers"} />
+
+      <Link to={"/chateditor"} className="nav-item">
+        <FiMessageSquare className="nav-icon" />
+        <span onClick={() => ChatEditor()} className="edit">
+          Editor
+        </span>
+      </Link>
+
+      <Link to={"/employees"} className="nav-item">
+        <AiOutlineUsergroupAdd className="nav-icon" />
+        <span onClick={() => Employees()} className="edit">
+          Employees
+        </span>
+      </Link>
+
+      {/* <Nav Icon={AiOutlineUsergroupAdd} title={"Employees"} /> */}
 
       <div className="divider"></div>
 
-      <Nav Icon={MdOutlineNotificationsActive} title={"Notifications"} />
-      <Nav Icon={RiAccountCircleLine} title={"Following"} />
-      <Nav Icon={AiOutlineDollarCircle} title={"Earnings"} />
-      <Nav Icon={TbFileUpload} title={"Posts"} />
-      <Nav Icon={BiMessageAltAdd} title={"Message Requests"} />
+      <Link to={"/customers"} className="nav-item">
+        <MdOutlineNotificationsActive className="nav-icon" />
+        <span onClick={() => Customers()} className="edit">
+          Customers
+        </span>
+      </Link>
+
+      {/* <Nav Icon={MdOutlineNotificationsActive} title={"Customers"} /> */}
+      <Nav Icon={RiAccountCircleLine} title={"Attendance Leave"} />
+      <Nav Icon={AiOutlineDollarCircle} title={"Payroll"} />
+
+      {/* <Nav Icon={TbFileUpload} title={"Orders"} /> */}
+
+      <Link to={"/orders"} className="nav-item">
+        <TbFileUpload className="nav-icon" />
+        <span onClick={() => Orders()} className="edit">
+          Orders
+        </span>
+      </Link>
+
+      <Nav Icon={BiMessageAltAdd} title={"CRM"} />
       <Nav Icon={AiOutlineUserSwitch} title={"Change Account"} />
 
       <div className="divider"></div>
@@ -92,6 +134,8 @@ const Navigation = () => {
         />
         <path d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
       </svg>
+
+      {/* {showChatEditor} */}
     </div>
   );
 };

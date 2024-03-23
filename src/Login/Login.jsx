@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import videobg from "../assets/videobg.mp4";
 
 const Login = () => {
   const [NewUser, setNewUser] = useState(true);
@@ -51,85 +52,91 @@ const Login = () => {
   };
 
   return (
-    <div className="login-page">
-      <header>
-        <span>
-          from <i>APS</i>
-        </span>
-      </header>
+    <div className="app">
+      <video src={videobg} autoPlay loop muted />
+      <div className="overlay"></div>
+      <div className="login-page">
+        {/* <video src={videobg} autoPlay loop muted />
+        <div className="overlay"></div> */}
+        <header>
+          <span>
+            from <i>APS</i>
+          </span>
+        </header>
 
-      <img className="logo" src={infinity} alt="" />
+        <img className="logo" src={infinity} alt="" />
 
-      <h2 className="title">
-        Sub-Min <br />
-        Dashboard
-      </h2>
+        <h2 className="title">
+          Sub-Min <br />
+          Dashboard
+        </h2>
 
-      <form onSubmit={submit}>
-        {NewUser && (
-          <div className="username">
+        <form onSubmit={submit}>
+          {NewUser && (
+            <div className="username">
+              <input
+                onChange={(e) => setusername(e.target.value)}
+                type="username"
+                id="username"
+                required
+              />
+              <label htmlFor="username">username</label>
+            </div>
+          )}
+
+          <div className="email">
             <input
-              onChange={(e) => setusername(e.target.value)}
-              type="username"
-              id="username"
+              onChange={(e) => setemail(e.target.value)}
+              type="email"
+              id="email"
               required
             />
-            <label htmlFor="username">username</label>
+            <label htmlFor="email">email</label>
           </div>
-        )}
 
-        <div className="email">
-          <input
-            onChange={(e) => setemail(e.target.value)}
-            type="email"
-            id="email"
-            required
-          />
-          <label htmlFor="email">email</label>
-        </div>
+          <div className="password">
+            <input
+              onChange={(e) => setpassword(e.target.value)}
+              type="password"
+              id="password"
+              required
+            />
+            <label htmlFor="password">password</label>
+          </div>
 
-        <div className="password">
-          <input
-            onChange={(e) => setpassword(e.target.value)}
-            type="password"
-            id="password"
-            required
-          />
-          <label htmlFor="password">password</label>
-        </div>
+          {error && <img src={warning} alt="" className="status" />}
+          {error && <span className="error">Process Failed</span>}
+          {error && <span className="error">{ErrorMsg}</span>}
 
-        {error && <img src={warning} alt="" className="status" />}
-        {error && <span className="error">Process Failed</span>}
-        {error && <span className="error">{ErrorMsg}</span>}
+          <button type="submit">{NewUser ? "Sign Up" : "Log In"}</button>
 
-        <button type="submit">{NewUser ? "Sign Up" : "Log In"}</button>
-
-        {NewUser ? (
-          <span className="user-stat">
-            Already have an account?{" "}
-            <b
-              onClick={() => {
-                setNewUser(false);
-                seterror(false);
-              }}
-            >
-              Log In
-            </b>
-          </span>
-        ) : (
-          <span className="user-stat">
-            Don't have an account?{" "}
-            <b
-              onClick={() => {
-                setNewUser(true);
-                seterror(false);
-              }}
-            >
-              Sign Up
-            </b>
-          </span>
-        )}
-      </form>
+          {NewUser ? (
+            <span className="user-stat">
+              Already have an account?{" "}
+              <b
+                onClick={() => {
+                  setNewUser(false);
+                  seterror(false);
+                }}
+              >
+                Log In
+              </b>
+            </span>
+          ) : (
+            <span className="user-stat">
+              Don't have an account?{" "}
+              <b
+                onClick={() => {
+                  setNewUser(true);
+                  seterror(false);
+                }}
+              >
+                Sign Up
+              </b>
+            </span>
+          )}
+        </form>
+      </div>
     </div>
   );
 };

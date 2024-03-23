@@ -6,8 +6,10 @@
   width: 20%;
   min-height: 100vh;
   color: white;
-  background: linear-gradient(10deg, #810551, #05454d);
   padding: 5px 10px;
+  background: rgba(57, 158, 229, 0.215);
+  backdrop-filter: blur(10px);
+  /* background-image: repeating-linear-gradient(135deg, rgba(25,25,25,0.08) 0px, rgba(25,25,25,0.08) 2px,transparent 2px, transparent 4px),linear-gradient(45deg, rgb(27,27,27),transparent),linear-gradient(135deg, rgb(27,27,27),transparent),linear-gradient(0deg, rgb(27,27,27),transparent),linear-gradient(90deg, rgb(193,154,107),rgb(193,154,107)); */
   overflow: hidden;
 }
 
@@ -109,4 +111,39 @@
   top: 0;
   z-index: -1;
   opacity: 0.3;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  padding: 40px 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.158); /* Apply a subtle hover background */
+}
+
+.nav-icon {
+  margin-right: -10px; /* Add spacing between icon and text */
+  font-size: 60px; /* Adjust icon size as needed */
+}
+
+.nav-item span {
+  font-size: 76px; /* Adjust text size as needed */
+  margin-left: 35px;
+}
+
+.nav-item {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+}
+
+.nav-item .edit {
+  cursor: pointer; /* Set cursor to pointer to indicate it's clickable */
 }

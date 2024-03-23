@@ -16,11 +16,11 @@
 }
 
 .analytics header .followers {
-  color: #00464e;
+  color: #6183a2;
 }
 
 .analytics header .earnings {
-  color: #810551;
+  color: rgba(253, 253, 253, 0.463);
 }
 
 .analytics .title {

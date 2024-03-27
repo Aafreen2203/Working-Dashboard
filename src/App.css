@@ -12,10 +12,10 @@
   justify-content: flex-start;
   align-items: flex-start;
   /* background-color: #880f0f; */
-  /* background: linear-gradient(45deg, #111, #c19a6b); */
+  background: linear-gradient(180deg, #111, #00464e);
   /* background-image: linear-gradient(155deg, #111 70%, #c19a6b 100%); */
   /* background-image: url(https://obgtrack.com/wp-content/uploads/2021/11/global.jpg); */
-  background-image: url(https://cdn.wallpapersafari.com/49/12/pyv4ug.jpg);
+  /* background-image: url(https://cdn.wallpapersafari.com/49/12/pyv4ug.jpg); */
   background-position: center right;
   background-size: 6150px;
   background-repeat: no-repeat;
@@ -37,22 +37,26 @@
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  height: 1500px; /* Adjust the height as needed */
+  height: 1500px; 
   /* padding-right: 500px; */
   position: fixed; /* Fix the container position */
   bottom: 400px; /* Adjust the distance from the bottom */
-  left: 2900px;
+  left: 3200px;
 }
 
-.btn {
+.btn-container .btn {
   /* display: flex; */
   /* margin-top: 2000px; */
   border: none;
-  background-color: #3566aa;
+  background-color: #00464e;
   color: #fff;
-  font-size: 56px;
+  font-size: 96px;
   padding: 3.5rem 10rem;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0px 5px 5px #cccccc7c;
+}
+
+.btn-container .btn:hover {
+  background-color: #0a1e20; /* Change background color on hover */
 }

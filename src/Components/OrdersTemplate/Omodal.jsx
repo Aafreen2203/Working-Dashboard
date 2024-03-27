@@ -8,6 +8,8 @@ export const Omodal = ({ closeModal, onSubmit, defaultValue }) => {
       oname: "",
       description: "",
       status: "active",
+      quantity: "",
+      price: "",
     }
   );
   const [errors, setErrors] = useState("");
@@ -17,7 +19,9 @@ export const Omodal = ({ closeModal, onSubmit, defaultValue }) => {
       formState.Orderid &&
       formState.oname &&
       formState.description &&
-      formState.status
+      formState.status &&
+      formState.quantity &&
+      formState.price
     ) {
       setErrors("");
       return true;
@@ -70,6 +74,22 @@ export const Omodal = ({ closeModal, onSubmit, defaultValue }) => {
               name="oname"
               onChange={handleChange}
               value={formState.oname}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="quantity">Quantity</label>
+            <input
+              name="quantity"
+              onChange={handleChange}
+              value={formState.quantity}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="price">Price</label>
+            <input
+              name="price"
+              onChange={handleChange}
+              value={formState.price}
             />
           </div>
           <div className="form-group">

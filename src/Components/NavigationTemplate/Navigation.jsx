@@ -20,6 +20,9 @@ import { ThemeContext } from "../../ThemeContext";
 import Employees from "../EmployeesTemplate/Employees";
 import Customers from "../CustomersTemplate/Customers";
 import Orders from "../OrdersTemplate/Orders";
+import Attendance from "../AttendanceTemplate/Attendance";
+import ChatRoom from "../ChatRoomTemplate/ChatRoom";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [nav, setnav] = useState(false);
@@ -41,6 +44,36 @@ const Navigation = () => {
   useEffect(() => {
     setusername(localStorage.getItem("username"));
   }, []);
+
+  const navigate = useNavigate();
+
+  const handleNavToggle = () => {
+    setNav((prevNav) => !prevNav);
+  };
+
+  const handleCRMClick = () => {
+    navigate("/chatroom");
+  };
+
+  const handleEMPclick = () => {
+    navigate("/employees");
+  };
+
+  const handleCHATEDITORclick = () => {
+    navigate("/chateditor");
+  };
+
+  const handleCUSTclick = () => {
+    navigate("/customers");
+  };
+
+  const handleATTENDANCEclick = () => {
+    navigate("/attendance");
+  };
+
+  const handleORDERSclick = () => {
+    navigate("/orders");
+  };
 
   return (
     <div className={`navigation ${nav && "active"} ${DarkTheme && "dark"}`}>
@@ -65,45 +98,80 @@ const Navigation = () => {
 
       <Nav Icon={TbDashboard} title={"Dashboard"} />
 
-      <Link to={"/chateditor"} className="nav-item">
+      <Nav
+        Icon={FiMessageSquare}
+        title={"Editor"}
+        onClick={handleCHATEDITORclick}
+      />
+
+      {/* <Link to={"/chateditor"} className="nav-item">
         <FiMessageSquare className="nav-icon" />
         <span onClick={() => ChatEditor()} className="edit">
           Editor
         </span>
-      </Link>
+      </Link> */}
 
-      <Link to={"/employees"} className="nav-item">
+      {/* <Link to={"/employees"} className="nav-item">
         <AiOutlineUsergroupAdd className="nav-icon" />
         <span onClick={() => Employees()} className="edit">
           Employees
         </span>
-      </Link>
+      </Link> */}
 
-      {/* <Nav Icon={AiOutlineUsergroupAdd} title={"Employees"} /> */}
+      <Nav
+        Icon={AiOutlineUsergroupAdd}
+        title={"Employees"}
+        onClick={handleEMPclick}
+      />
 
       <div className="divider"></div>
 
-      <Link to={"/customers"} className="nav-item">
+      {/* <Link to={"/customers"} className="nav-item">
         <MdOutlineNotificationsActive className="nav-icon" />
         <span onClick={() => Customers()} className="edit">
           Customers
         </span>
-      </Link>
+      </Link> */}
 
-      {/* <Nav Icon={MdOutlineNotificationsActive} title={"Customers"} /> */}
-      <Nav Icon={RiAccountCircleLine} title={"Attendance Leave"} />
+      <Nav
+        Icon={MdOutlineNotificationsActive}
+        title={"Customers"}
+        onClick={handleCUSTclick}
+      />
+
+      <Nav
+        Icon={RiAccountCircleLine}
+        title={"Attendance Leave"}
+        onClick={handleATTENDANCEclick}
+      />
+
+      {/* <Link to={"/attendance"} className="nav-item">
+        <RiAccountCircleLine className="nav-icon" />
+        <span onClick={() => Attendance()} className="edit">
+          Attendance
+        </span>
+      </Link> */}
+
       <Nav Icon={AiOutlineDollarCircle} title={"Payroll"} />
 
-      {/* <Nav Icon={TbFileUpload} title={"Orders"} /> */}
+      <Nav Icon={TbFileUpload} title={"Orders"} onClick={handleORDERSclick} />
 
-      <Link to={"/orders"} className="nav-item">
+      {/* <Link to={"/orders"} className="nav-item">
         <TbFileUpload className="nav-icon" />
         <span onClick={() => Orders()} className="edit">
           Orders
         </span>
-      </Link>
+      </Link> */}
 
-      <Nav Icon={BiMessageAltAdd} title={"CRM"} />
+      <Nav Icon={BiMessageAltAdd} title={"CRM"} onClick={handleCRMClick} />
+
+      {/* <Link to={"/chatroom"} className="nav-item">
+        <BiMessageAltAdd className="nav-icon" />
+        <span onClick={() => ChatRoom()} className="edit">
+          CRM
+        </span>
+      </Link> */}
+
       <Nav Icon={AiOutlineUserSwitch} title={"Change Account"} />
 
       <div className="divider"></div>

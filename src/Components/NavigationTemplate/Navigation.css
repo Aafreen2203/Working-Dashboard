@@ -7,7 +7,7 @@
   min-height: 100vh;
   color: white;
   padding: 5px 10px;
-  background: rgba(57, 158, 229, 0.215);
+  background: rgba(24, 81, 121, 0.215);
   backdrop-filter: blur(10px);
   /* background-image: repeating-linear-gradient(135deg, rgba(25,25,25,0.08) 0px, rgba(25,25,25,0.08) 2px,transparent 2px, transparent 4px),linear-gradient(45deg, rgb(27,27,27),transparent),linear-gradient(135deg, rgb(27,27,27),transparent),linear-gradient(0deg, rgb(27,27,27),transparent),linear-gradient(90deg, rgb(193,154,107),rgb(193,154,107)); */
   overflow: hidden;

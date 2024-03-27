@@ -1,243 +1,3 @@
-// import { useEffect, useState } from "react";
-// import "./App.css";
-// import Navigation from "./Components/NavigationTemplate/Navigation";
-// import { ThemeContext } from "./ThemeContext";
-// import Main from "./Main/Main";
-// import Login from "./Login/Login";
-// import { onAuthStateChanged } from "firebase/auth";
-// import { auth } from "./Firebase";
-
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// function App() {
-//   const [DarkTheme, setDarkTheme] = useState(true);
-//   const [LoggedIn, setLoggedIn] = useState(false);
-//   const [showChatEditor, setShowChatEditor] = useState(false);
-
-//   useEffect(() => {
-//     onAuthStateChanged(auth, (user) => {
-//       if (user) {
-//         setLoggedIn(true);
-//       } else {
-//         setLoggedIn(false);
-//       }
-//     });
-//   }, []);
-
-//   return (
-//     <BrowserRouter>
-//       <ThemeContext.Provider value={{ DarkTheme, setDarkTheme }}>
-//         <div className="App">
-//           {LoggedIn ? (
-//             <>
-//               <Navigation />
-//               <Main />
-//             </>
-//           ) : (
-//             <Login />
-//           )}
-//         </div>
-//       </ThemeContext.Provider>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
-
-// working with chateditor and login code
-
-// import { useEffect, useState } from "react";
-// import "./App.css";
-// import Navigation from "./Components/NavigationTemplate/Navigation";
-// import { ThemeContext } from "./ThemeContext";
-// import Main from "./Main/Main";
-// import Login from "./Login/Login";
-// import { onAuthStateChanged } from "firebase/auth";
-// import { auth } from "./Firebase";
-
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import ChatEditor from "./Components/ChatEditorTemplate/ChatEditor";
-// import Employees from "./Components/EmployeesTemplate/Employees";
-// function App() {
-//   const [DarkTheme, setDarkTheme] = useState(true);
-//   const [LoggedIn, setLoggedIn] = useState(false);
-//   const [showChatEditor, setShowChatEditor] = useState(false);
-
-//   useEffect(() => {
-//     onAuthStateChanged(auth, (user) => {
-//       if (user) {
-//         setLoggedIn(true);
-//       } else {
-//         setLoggedIn(false);
-//       }
-//     });
-//   }, []);
-
-//   return (
-//     <BrowserRouter>
-//       <ThemeContext.Provider value={{ DarkTheme, setDarkTheme }}>
-//         <div className="App">
-//           {LoggedIn ? (
-//             <>
-//               <Navigation />
-//               <Routes>
-//                 <Route path="/" element={<Main />} />
-//                 <Route path="/chateditor" element={<ChatEditor />} />{" "}
-//                 <Route path="/employees" element={<Employees />} />{" "}
-//                 {/* Add Route for ChatEditor */}
-//               </Routes>
-//             </>
-//           ) : (
-//             <Login />
-//           )}
-//         </div>
-//       </ThemeContext.Provider>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
-
-// import { useState, useEffect } from "react";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import "./App.css";
-// import Navigation from "./Components/NavigationTemplate/Navigation";
-// import { ThemeContext } from "./ThemeContext";
-// import Main from "./Main/Main";
-// import Login from "./Login/Login";
-// import { onAuthStateChanged } from "firebase/auth";
-// import { auth } from "./Firebase";
-// import ChatEditor from "./Components/ChatEditorTemplate/ChatEditor";
-// import Employees from "./Components/EmployeesTemplate/Employees";
-// import Customers from "./Components/CustomersTemplate/Customers";
-// // import { Modal } from "@mui/material";
-// import { Modal } from "./Components/EmployeesTemplate/Modal";
-// import { Cmodal } from "./Components/CustomersTemplate/Cmodal";
-
-// function App() {
-//   const [DarkTheme, setDarkTheme] = useState(true);
-//   const [LoggedIn, setLoggedIn] = useState(false);
-//   const [showChatEditor, setShowChatEditor] = useState(false);
-//   const [modalOpen, setModalOpen] = useState(false);
-//   const [rows, setRows] = useState([
-//     {
-//       Employeeid: "Home",
-//       name: "Sneha",
-//       description: "This is the main page of the website",
-//       status: "live",
-//     },
-//     {
-//       Employeeid: "About Us",
-//       name: "Prachiti",
-//       description: "This page has details about the company",
-//       status: "draft",
-//     },
-//     {
-//       Employeeid: "Pricing",
-//       name: "Aafreen",
-//       description: "Prices for different subscriptions",
-//       status: "error",
-//     },
-//   ]);
-//   const [rowToEdit, setRowToEdit] = useState(null);
-
-//   useEffect(() => {
-//     onAuthStateChanged(auth, (user) => {
-//       if (user) {
-//         setLoggedIn(true);
-//       } else {
-//         setLoggedIn(false);
-//       }
-//     });
-//   }, []);
-
-//   const handleDeleteRow = (targetIndex) => {
-//     setRows(rows.filter((_, idx) => idx !== targetIndex));
-//   };
-
-//   const handleEditRow = (idx) => {
-//     setRowToEdit(idx);
-//     setModalOpen(true);
-//   };
-
-//   const handleSubmit = (newRow) => {
-//     rowToEdit === null
-//       ? setRows([...rows, newRow])
-//       : setRows(
-//           rows.map((currRow, idx) => {
-//             if (idx !== rowToEdit) return currRow;
-//             return newRow;
-//           })
-//         );
-//   };
-
-//   return (
-//     <Router>
-//       <ThemeContext.Provider value={{ DarkTheme, setDarkTheme }}>
-//         <div className="App">
-//           {LoggedIn ? (
-//             <>
-//               <Navigation />
-//               <Routes>
-//                 <Route path="/" element={<Main />} />
-//                 <Route path="/chateditor" element={<ChatEditor />} />
-//                 <Route
-//                   path="/employees"
-//                   element={
-//                     <Employees
-//                       rows={rows}
-//                       deleteRow={handleDeleteRow}
-//                       editRow={handleEditRow}
-//                     />
-//                   }
-//                 />
-//                 <Route
-//                   path="/customers"
-//                   element={
-//                     <Customers
-//                       rows={rows} // Assuming you're using the same rows for customers
-//                       deleteRow={handleDeleteRow} // Assuming you're using the same delete function
-//                       editRow={handleEditRow} // Assuming you're using the same edit function
-//                     />
-//                   }
-//                 />
-//               </Routes>
-//               <div className="btn-container">
-//                 <button onClick={() => setModalOpen(true)} className="btn">
-//                   Add
-//                 </button>
-//               </div>
-//               {modalOpen && (
-//                 <Modal
-//                   closeModal={() => {
-//                     setModalOpen(false);
-//                     setRowToEdit(null);
-//                   }}
-//                   onSubmit={handleSubmit}
-//                   defaultValue={rowToEdit !== null && rows[rowToEdit]}
-//                 />
-//               )}
-//               {modalOpen && (
-//                 <Cmodal
-//                   closeModal={() => {
-//                     setModalOpen(false);
-//                     setRowToEdit(null);
-//                   }}
-//                   onSubmit={handleSubmit}
-//                   defaultValue={rowToEdit !== null && rows[rowToEdit]}
-//                 />
-//               )}
-//             </>
-//           ) : (
-//             <Login />
-//           )}
-//         </div>
-//       </ThemeContext.Provider>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -254,6 +14,8 @@ import { Modal } from "./Components/EmployeesTemplate/Modal";
 import { Cmodal } from "./Components/CustomersTemplate/Cmodal";
 import Orders from "./Components/OrdersTemplate/Orders";
 import { Omodal } from "./Components/OrdersTemplate/Omodal";
+import Attendance from "./Components/AttendanceTemplate/Attendance";
+import ChatRoom from "./Components/ChatRoomTemplate/ChatRoom";
 
 function App() {
   const [DarkTheme, setDarkTheme] = useState(true);
@@ -265,18 +27,21 @@ function App() {
       name: "Sneha",
       description: "This is the main page of the website",
       status: "live",
+      salary: 12000,
     },
     {
       Employeeid: "About Us",
       name: "Prachiti",
       description: "This page has details about the company",
       status: "draft",
+      salary: 12000,
     },
     {
       Employeeid: "Pricing",
       name: "Aafreen",
       description: "Prices for different subscriptions",
       status: "error",
+      salary: 12000,
     },
   ]);
   const [customerRows, setCustomerRows] = useState([
@@ -307,18 +72,24 @@ function App() {
       oname: "Sneha",
       description: "This is the main page of the website",
       status: "live",
+      quantity: 10,
+      price: 500,
     },
     {
       Orderid: "About Us",
       oname: "Prachiti",
       description: "This page has details about the company",
       status: "draft",
+      quantity: 10,
+      price: 500,
     },
     {
       Orderid: "Pricing",
       oname: "Aafreen",
       description: "Prices for different subscriptions",
       status: "error",
+      quantity: 10,
+      price: 500,
     },
   ]);
   const [rowToEdit, setRowToEdit] = useState(null);
@@ -387,7 +158,7 @@ function App() {
     rowToEdit === null
       ? setOrderRows([...orderRows, newRow])
       : setOrderRows(
-        orderRows.map((currRow, idx) => {
+          orderRows.map((currRow, idx) => {
             if (idx !== rowToEdit) return currRow;
             return newRow;
           })
@@ -404,6 +175,8 @@ function App() {
               <Routes>
                 <Route path="/" element={<Main />} />
                 <Route path="/chateditor" element={<ChatEditor />} />
+                <Route path="/attendance" element={<Attendance />} />
+                <Route path="/chatroom" element={<ChatRoom />} />
                 <Route
                   path="/employees"
                   element={

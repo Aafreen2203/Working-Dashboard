@@ -24,7 +24,7 @@ body::-webkit-scrollbar {
   background: transparent;
   /* background: linear-gradient(45deg, #810551, #00464e); */
   width: 1500px;
-  height: 2000px;
+  height: 2300px;
   aspect-ratio: 1;
   border-radius: 10px;
   padding: 60px 80px;

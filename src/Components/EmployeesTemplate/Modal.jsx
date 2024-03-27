@@ -9,12 +9,13 @@ export const Modal = ({ closeModal, onSubmit, defaultValue }) => {
       name: "",
       description: "",
       status: "live",
+      salary: "",
     }
   );
   const [errors, setErrors] = useState("");
 
   const validateForm = () => {
-    if (formState.Employeeid && formState.name &&formState.description && formState.status) {
+    if (formState.Employeeid && formState.name &&formState.description && formState.status && formState.salary) {
       setErrors("");
       return true;
     } else {
@@ -59,6 +60,10 @@ export const Modal = ({ closeModal, onSubmit, defaultValue }) => {
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input name="name" onChange={handleChange} value={formState.name} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="salary">Salary</label>
+            <input name="salary" onChange={handleChange} value={formState.salary} />
           </div>
           <div className="form-group">
             <label htmlFor="description">Description</label>

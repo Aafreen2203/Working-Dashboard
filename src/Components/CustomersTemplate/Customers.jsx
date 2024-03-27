@@ -48,17 +48,28 @@
 
 // export default Customers;
 
-
-
 import React from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 import "./Customers.css";
+import * as XLSX from "xlsx";
+import { CiExport } from "react-icons/ci";
 
 export const Customers = ({ rows, deleteRow, editRow }) => {
+  const handleExport = () => {
+    // Convert table data to worksheet
+    const ws = XLSX.utils.json_to_sheet(rows);
+
+    // Create workbook and add the worksheet
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Customers");
+
+    // Save the workbook as an Excel file
+    XLSX.writeFile(wb, "customers.xlsx");
+  };
   return (
-    <div className="table-wrapper">
+    <div className="Custtable-wrapper">
       <h1>Customer Details</h1>
-      <table className="table">
+      <table className="Custtable">
         <thead>
           <tr>
             <th>Customer ID</th>
@@ -100,6 +111,7 @@ export const Customers = ({ rows, deleteRow, editRow }) => {
           })}
         </tbody>
       </table>
+      <CiExport onClick={handleExport} className="Custexport-btn" />
     </div>
   );
 };

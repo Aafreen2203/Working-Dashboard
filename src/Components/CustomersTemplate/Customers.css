@@ -1,17 +1,17 @@
 
-.table-wrapper {
+.Custtable-wrapper {
   width: 100%;
 }
 
-.table-wrapper h1 {
+.Custtable-wrapper h1 {
   color: #ccc;
   font-size: 150px;
-  margin-left: 100px;
+  margin-right: 3750px;
   margin-top: 90px;
   margin-bottom: -100px;
 }
 
-.table {
+.Custtable {
   display: inline-block;
   overflow: hidden;
   table-layout: fixed;
@@ -21,7 +21,7 @@
   white-space: nowrap;
   /* width: 4500px;
   height: 1100px; */
-  max-width: 75%; 
+  max-width: 100%; 
   width: 250em;
   /* width: 200em;
   /* max-width: 70%; */
@@ -33,26 +33,26 @@
   overflow-y: auto;
 }
 
-.table thead {
+.Custtable thead {
   background: linear-gradient(45deg, #777, #0047ab);
   color: #fffefe;
   font-size: 96px;
   /* width: 100%; */
 }
 
-.table th,
-.table td {
+.Custtable th,
+.Custtable td {
   padding: 5.8rem;
 }
 
-.table td {
+.Custtable td {
   border-top: 3.5px solid #ddd;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 76px;
   color: #ccc;
 }
-.table tbody tr:hover {
+.Custtable tbody tr:hover {
   background-color: #eeeeee50;
 }
 
@@ -69,17 +69,20 @@
 
 .label-draft {
   background-color: #777;
+  border-radius: 30px;
 }
 
 .label-live {
   background-color: #42a942;
+  border-radius: 30px;
 }
 
 .label-error {
   background-color: #d9534f;
+  border-radius: 30px;
 }
 
-/* .actions {
+.actions {
   display: flex;
   justify-content: space-around;
 }
@@ -90,6 +93,13 @@
 
 .delete-btn {
   color: #e10d05;
-} */
+}
+
+.Custexport-btn {
+  font-size: 106px;
+  margin-bottom: 1200px;
+ margin-left: -100px;
+  color: rgb(251, 251, 251);
+}
 
 

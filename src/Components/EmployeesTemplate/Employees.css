@@ -1,17 +1,16 @@
-
-.table-wrapper {
+.Emptable-wrapper {
   width: 100%;
 }
 
-.table-wrapper h1 {
+.Emptable-wrapper h1 {
   color: #ccc;
   font-size: 150px;
-  margin-left: 100px;
+  margin-left: -3800px;
   margin-top: 90px;
   margin-bottom: -100px;
 }
 
-.table {
+.Emptable {
   display: inline-block;
   overflow: hidden;
   table-layout: fixed;
@@ -21,8 +20,8 @@
   white-space: nowrap;
   /* width: 4500px;
   height: 1100px; */
-  max-width: 75%; 
-  width: 250em;
+  max-width: 100%; 
+  width: 4000px;
   /* width: 200em;
   /* max-width: 70%; */
   margin: auto;
@@ -33,26 +32,26 @@
   overflow-y: auto;
 }
 
-.table thead {
+.Emptable thead {
   background: linear-gradient(45deg, #777, #0047ab);
   color: #fffefe;
   font-size: 96px;
   /* width: 100%; */
 }
 
-.table th,
-.table td {
+.Emptable th,
+.Emptable td {
   padding: 5.8rem;
 }
 
-.table td {
+.Emptable td {
   border-top: 3.5px solid #ddd;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 76px;
   color: #ccc;
 }
-.table tbody tr:hover {
+.Emptable tbody tr:hover {
   background-color: #eeeeee50;
 }
 
@@ -69,17 +68,20 @@
 
 .label-draft {
   background-color: #777;
+  border-radius: 30px;
 }
 
 .label-live {
   background-color: #42a942;
+  border-radius: 30px;
 }
 
 .label-error {
   background-color: #d9534f;
+  border-radius: 30px;
 }
 
-/* .actions {
+.actions {
   display: flex;
   justify-content: space-around;
 }
@@ -90,6 +92,13 @@
 
 .delete-btn {
   color: #e10d05;
-} */
+}
+
+.export-btn {
+  font-size: 106px;
+  margin-bottom: 1200px;
+ margin-left: -100px;
+  color: rgb(251, 251, 251);
+}
 
 

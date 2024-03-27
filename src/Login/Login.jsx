@@ -3,10 +3,11 @@ import infinity from "../assets/infinity.png";
 import { useState } from "react";
 import warning from "../assets/warning.png";
 
-import { auth } from "../Firebase";
+import { auth, provider } from "../Firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
 import videobg from "../assets/videobg.mp4";
 
@@ -50,6 +51,20 @@ const Login = () => {
         });
     }
   };
+
+  const handleClick = () => {
+    signInWithPopup(auth, provider).then((data) => {
+      setValue(data.user.email);
+      localStorage.setItem("email", data.user.email);
+    });
+  };
+
+  // useEffect(() => {
+  //   setValue(localStorage.getItem("email"));
+  // });
+
+  // const SignIn = () => {
+  //   const [value, setValue] = useState("");
 
   return (
     <div className="app">
@@ -109,6 +124,8 @@ const Login = () => {
           {error && <span className="error">{ErrorMsg}</span>}
 
           <button type="submit">{NewUser ? "Sign Up" : "Log In"}</button>
+
+          <button onClick={handleClick}>SignIn With Google</button>
 
           {NewUser ? (
             <span className="user-stat">
